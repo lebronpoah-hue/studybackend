@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Study Portal"
+description = "A browser-based game portal built from the supplied HTML, connected to a fixed same-origin backend API for status and future app data."
+version = "1.0.0"
+id = "artifacts/study-portal"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25108
+
+[services.development]
+run = "pnpm --filter @workspace/study-portal run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/study-portal", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/study-portal/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25108"
+BASE_PATH = "/"

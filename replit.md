@@ -1,6 +1,6 @@
-# [Project name]
+# Study Portal
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Game portal built from the supplied HTML, with a status indicator connected to the app's API.
 
 ## Run & Operate
 
@@ -22,19 +22,24 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/study-portal/public/portal.html` — supplied portal page shown in the app.
+- `artifacts/study-portal/deploy/nginx.conf.example` — standalone Nginx routing example.
+- `artifacts/api-server/src/routes/health.ts` — API health endpoint consumed by the frontend.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The supplied HTML remains a separate page inside the app; the React shell displays API status alongside it.
+- Replit's managed router handles `/api` in this project. The Nginx file is only an example for separate hosting.
+- The backend serves only fixed application API routes; it does not forward arbitrary URL destinations.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Displays the supplied game portal.
+- Shows whether the app's API is reachable.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Use the supplied HTML as the frontend and connect it to the backend through `/api`.
 
 ## Gotchas
 
